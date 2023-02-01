@@ -1,0 +1,7 @@
+__tests__
+.next
+node_modules
+yarn.lock
+package-lock.json
+public
+**/$path.ts
