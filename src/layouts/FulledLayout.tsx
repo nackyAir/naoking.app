@@ -4,7 +4,7 @@ import { CustomLayout } from "next";
 
 export const FulledLayout: CustomLayout = (page) => {
 	return (
-		<div className="min-h-screen flex-col ">
+		<div className="min-h-screen flex-col">
 			<header>
 				<Header />
 			</header>

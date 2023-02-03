@@ -23,10 +23,11 @@ export const Index: FC = () => {
 
 				<div className="flex-col">
 					<div>
-						<h2 className="font-serif text-4xl font-bold">About</h2>
+						<h2 className="font-serif text-4xl font-bold">Naoki Hayashida</h2>
+						<div className=""></div>
 					</div>
 					<div>
-						<h2>Language</h2>
+						<h2 className="font-serif text-4xl font-bold">Language</h2>
 					</div>
 					<div>
 						<h2>Product</h2>
