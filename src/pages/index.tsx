@@ -4,10 +4,10 @@ import Image from "next/image";
 
 export const Index: FC = () => {
 	return (
-		<div className="mx-auto flex-col">
+		<div className="mx-auto flex-col  px-2">
 			<div>
 				<div className="xs:mx-4 flex flex-col items-center justify-center md:flex-row ">
-					<div className="font-mono text-5xl font-bold">
+					<div className="font-serif text-4xl font-bold">
 						Hello!! <br /> I&apos;m <br /> Web Devropper.
 					</div>
 					<div>
@@ -21,24 +21,25 @@ export const Index: FC = () => {
 					</div>
 				</div>
 
-				<div className="mx-16 ">
-					<div className="flex flex-row items-center">
+				<div className="mx-4">
+					<div className="flex flex-row items-center border border-gray-100 shadow-2xl md:flex-col  md:shadow-none">
 						<div>
 							<Image
 								src="/profile.png"
 								alt=""
-								width={180}
-								height={180}
-								className="rounded-xl"
+								width={150}
+								height={100}
+								className="rounded-xl md:rounded-full"
 							/>
 						</div>
 
-						<div>
-							<h2 className="font-serif text-2xl font-bold">Naoki Hayashida</h2>
+						<div className="px-4">
+							<h2 className="font-serif text-xl font-bold">Naoki Hayashida</h2>
 							<p className="font-serif ">Web Devropper</p>
+							<p></p>
 						</div>
 					</div>
-					<div>
+					<div className="pt-6">
 						<h2 className="font-serif text-4xl font-bold">Language</h2>
 					</div>
 					<div>
