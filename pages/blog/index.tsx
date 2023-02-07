@@ -1,9 +1,9 @@
 import { CustomNextPage, GetStaticProps } from "next";
-import { FulledLayout } from "@/layouts/FulledLayout";
 import "animate.css";
 import { Blog } from "@/pages/blog";
 import { client } from "@/client/client";
 import { MicroCMSListResponse } from "microcms-js-sdk";
+import { FixedLayout } from "@/layouts/FixedLayout";
 
 export type BlogProps = MicroCMSListResponse<BlogItemProps>;
 
@@ -26,6 +26,6 @@ export const getStaticProps: GetStaticProps<BlogProps> = async () => {
 	};
 };
 
-BlogPage.getLayout = FulledLayout;
+BlogPage.getLayout = FixedLayout;
 
 export default BlogPage;
