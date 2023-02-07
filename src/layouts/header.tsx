@@ -7,6 +7,10 @@ const items = [
 		href: pagesPath.$url().pathname,
 		label: "Home",
 	},
+	{
+		href: pagesPath.blog.$url().pathname,
+		label: "Blog",
+	},
 ];
 
 export const Header: FC = () => {
@@ -18,10 +22,12 @@ export const Header: FC = () => {
 				</div>
 				<div>
 					<div>
-						<ul>
-							<li>
-								<Link href="/">Home</Link>
-							</li>
+						<ul className="flex flex-row space-x-4">
+							{items.map((item) => (
+								<li key={item.href}>
+									<Link href={item.href}>{item.label}</Link>
+								</li>
+							))}
 						</ul>
 					</div>
 				</div>

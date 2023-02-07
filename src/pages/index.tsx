@@ -22,12 +22,12 @@ export const Index: FC = () => {
 				</div>
 
 				<div className="mx-4">
-					<div className="flex flex-row items-center border border-gray-100 shadow-2xl md:flex-col  md:shadow-none">
+					<div className="flex flex-row items-center  md:flex-col  md:shadow-none">
 						<div>
 							<Image
 								src="/profile.png"
 								alt=""
-								width={150}
+								width={100}
 								height={100}
 								className="rounded-xl md:rounded-full"
 							/>
