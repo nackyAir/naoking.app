@@ -3,13 +3,14 @@ import { FixedLayout } from "@/layouts/FixedLayout";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { CustomNextPage, GetStaticPaths, GetStaticProps } from "next";
 import { BlogItemProps } from "pages/blog";
+import dayjs from "dayjs";
 
 type Props = BlogItemProps & MicroCMSContentId & MicroCMSDate;
 
 export const BlogPage: CustomNextPage<Props> = (props) => {
 	return (
 		<div>
-			<div></div>
+			<time>{dayjs(props.createdAt).format("YYYY年MM月DD日")}</time>
 		</div>
 	);
 };
