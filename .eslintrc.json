@@ -1,14 +1,6 @@
 {
 	"root": true,
-	"extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended"],
+	"extends": ["next/core-web-vitals"],
 
-	"plugins": ["react", "react-hooks", "prettier", "tailwindcss"],
-	"rules": {
-		"tailwindcss/no-custom-classname": [
-			"warn",
-			{
-				"whitelist": ["animate\\__(backInDown|animated|bounce|backInLeft)"]
-			}
-		]
-	}
+	"plugins": ["react", "react-hooks", "prettier"]
 }
