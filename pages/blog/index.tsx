@@ -10,6 +10,12 @@ export type BlogProps = MicroCMSListResponse<BlogItemProps>;
 export type BlogItemProps = {
 	title: string;
 	body: string;
+	image?: {
+		url: string;
+		width: number;
+		height: number;
+		alt: string;
+	};
 };
 
 export const BlogPage: CustomNextPage<BlogProps> = (props) => {

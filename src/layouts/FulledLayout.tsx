@@ -1,10 +1,12 @@
 import { Header } from "@/layouts/header";
 import { LayoutErrorBandry } from "@/layouts/LayoutErrorBandry";
 import { CustomLayout } from "next";
+import { Toaster } from "react-hot-toast";
 
 export const FulledLayout: CustomLayout = (page) => {
 	return (
-		<div className="min-h-screen flex-col px-2">
+		<div className="flex-col min-h-screen px-2">
+			<Toaster position="top-center" reverseOrder={false} />
 			<header>
 				<Header />
 			</header>

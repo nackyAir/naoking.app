@@ -4,7 +4,7 @@ import { CustomLayout } from "next";
 
 export const FixedLayout: CustomLayout = (page) => {
 	return (
-		<div className="mx-auto flex min-h-screen max-w-xl flex-col bg-slate-200 py-7 px-2">
+		<div className="mx-auto flex min-h-screen max-w-xl flex-col px-2 py-7">
 			<header>
 				<Header />
 			</header>

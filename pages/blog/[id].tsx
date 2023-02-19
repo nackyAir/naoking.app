@@ -3,21 +3,19 @@ import { FixedLayout } from "@/layouts/FixedLayout";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { CustomNextPage, GetStaticPaths, GetStaticProps } from "next";
 import { BlogItemProps } from "pages/blog";
-import dayjs from "dayjs";
+import { BlogPageItem } from "@/pages/blog/blogpage";
 
-type Props = BlogItemProps & MicroCMSContentId & MicroCMSDate;
+export type Props = BlogItemProps & MicroCMSContentId & MicroCMSDate;
 
 export const BlogPage: CustomNextPage<Props> = (props) => {
-	return (
-		<div>
-			<time>{dayjs(props.createdAt).format("YYYY年MM月DD日")}</time>
-		</div>
-	);
+	return <BlogPageItem {...props} />;
 };
 
 export default BlogPage;
 
 BlogPage.getLayout = FixedLayout;
+
+//? MICROCMSのAPIを叩く
 
 export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
 	const data = await client.getList({
