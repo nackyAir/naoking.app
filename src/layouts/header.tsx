@@ -1,8 +1,11 @@
 import { pagesPath } from "@/lib/$path";
+import { Burger, Text } from "@mantine/core";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
+import { NextLink } from "@mantine/next";
 import Link from "next/link";
-import { FC } from "react";
+import { FC, useState } from "react";
 
-const items = [
+const Links = [
 	{
 		href: pagesPath.$url().pathname,
 		label: "Home",
@@ -14,16 +17,30 @@ const items = [
 ];
 
 export const Header: FC = () => {
+	const sm = useMediaQuery("sm");
+	const [opem, setOpen] = useState(false);
+	const [opened, { toggle, open }] = useDisclosure(false);
+
+	const items = Links.map((link) => (
+		<NextLink key={link.label} href={link.href}>
+			<Text
+				size="sm"
+				weight={700}
+				style={{ borderRadius: "2px", cursor: "pointer" }}
+				onClick={() => close()}
+			>
+				{link.label}
+			</Text>
+		</NextLink>
+	));
+
 	return (
 		<>
 			<div className="mx-auto flex justify-between">
-				<div className="hidden md:flex">
-					<div className="font-serif text-2xl font-bold">Naoki Hayashida</div>
-				</div>
 				<div>
 					<div>
 						<ul className="flex flex-row space-x-4">
-							{items.map((item) => (
+							{Links.map((item) => (
 								<li key={item.href}>
 									<Link href={item.href}>{item.label}</Link>
 								</li>
