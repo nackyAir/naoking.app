@@ -7,14 +7,16 @@ import { toast } from "react-hot-toast";
 export const Form: FC = () => {
 	const form = useForm({
 		initialValues: {
-			name: {
-				first_name: "",
-				last_name: "",
-			},
+			name: "",
 			company: "",
-			tel: "",
 			email: "",
 			message: "",
+		},
+		validate: {
+			name: (value) =>
+				value.length < 2 ? "Name must have at least 2 letters" : null,
+			email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+			message: (value) => (value.length > 0 ? null : "Invalid message"),
 		},
 	});
 
@@ -44,16 +46,20 @@ export const Form: FC = () => {
 						className="flex flex-col space-y-4"
 					>
 						<TextInput
-							id="name"
 							label="Name"
 							type="text"
-							placeholder="name"
+							placeholder="Your name"
 							withAsterisk
-							{...form.getInputProps("form_name")}
+							{...form.getInputProps("name")}
+						/>
+						<TextInput
+							label="company"
+							type="text"
+							placeholder="会社名"
+							{...form.getInputProps("company")}
 						/>
 
 						<TextInput
-							id="email"
 							label="Email"
 							type="text"
 							placeholder="your@examle.com"
@@ -62,14 +68,15 @@ export const Form: FC = () => {
 						/>
 
 						<Textarea
-							id="content"
 							placeholder="Your comment"
 							label="Your comment"
 							withAsterisk
 							{...form.getInputProps("message")}
 						/>
 
-						<Button type="submit">Submit</Button>
+						<Button type="submit" variant="outline">
+							Submit
+						</Button>
 					</form>
 				</div>
 			</div>
