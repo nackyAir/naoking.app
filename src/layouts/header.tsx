@@ -17,8 +17,8 @@ export const Header: FC = () => {
 	return (
 		<>
 			<div className="mx-auto flex justify-between">
-				<div>
-					<div>N</div>
+				<div className="hidden md:flex">
+					<div className="font-serif text-2xl font-bold">Naoki Hayashida</div>
 				</div>
 				<div>
 					<div>
