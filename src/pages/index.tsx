@@ -1,7 +1,6 @@
 import { FC } from "react";
 import "animate.css";
 import Image from "next/image";
-import { About } from "@/components/atom/about";
 import { Laaguage } from "@/components/atom/language";
 import { Form } from "@/components/atom/form";
 
