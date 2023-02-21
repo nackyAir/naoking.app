@@ -1,5 +1,5 @@
 import { pagesPath } from "@/lib/$path";
-import { Burger, Text } from "@mantine/core";
+import { Burger, Drawer, Text } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { NextLink } from "@mantine/next";
 import Link from "next/link";
@@ -37,6 +37,13 @@ export const Header: FC = () => {
 	return (
 		<>
 			<div className="mx-auto flex justify-between">
+				<div>
+					<Drawer
+						opened={opened}
+						onClose={() => close()}
+						withCloseButton={false}
+					/>
+				</div>
 				<div>
 					<div>
 						<ul className="flex flex-row space-x-4">
