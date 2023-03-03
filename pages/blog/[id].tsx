@@ -15,8 +15,6 @@ export default BlogPage;
 
 BlogPage.getLayout = FixedLayout;
 
-//? MICROCMSのAPIを叩く
-
 export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
 	const data = await client.getList({
 		endpoint: "blog",
