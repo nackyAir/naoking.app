@@ -8,14 +8,14 @@ export const Blog: FC<BlogProps> = (props) => {
 	return (
 		<>
 			<div>
-				<h1 className="py-8 text-center text-4xl font-bold">Blog List</h1>
+				<h1 className="pb-8 text-4xl font-bold text-center">Blog List</h1>
 			</div>
-			<div className="mx-auto min-h-screen">
+			<div className="min-h-screen mx-auto">
 				{props.contents.map((item) => {
 					return (
 						<Link href={`/blog/${item.id}`} key={item.id}>
 							<div className="py-3">
-								<div className="flex items-center justify-between border border-gray-200 p-4 shadow-lg">
+								<div className="flex items-center justify-between p-4 border border-gray-200 shadow-lg">
 									<div>
 										<time className="text-[14px]">
 											{dayjs(item.createdAt).format("更新日:YYYY年MM月DD日")}

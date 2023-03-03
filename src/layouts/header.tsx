@@ -1,61 +1,123 @@
+import {
+	createStyles,
+	Header,
+	Group,
+	Container,
+	Burger,
+	Text,
+	Stack,
+	Drawer,
+} from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import { pagesPath } from "@/lib/$path";
-import { Burger, Drawer, Text } from "@mantine/core";
-import { useDisclosure, useMediaQuery } from "@mantine/hooks";
-import { NextLink } from "@mantine/next";
 import Link from "next/link";
-import { FC, useState } from "react";
+import { FC } from "react";
+import { ThemeButton } from "@/components/atom/ThemeButton";
 
-const Links = [
-	{
-		href: pagesPath.$url().pathname,
-		label: "Home",
+const useStyles = createStyles((theme) => ({
+	inner: {
+		display: "flex",
+		justifyContent: "space-between",
+		alignItems: "center",
+		height: 56,
+
+		[theme.fn.smallerThan("md")]: {
+			justifyContent: "bitween",
+		},
 	},
-	{
-		href: pagesPath.blog.$url().pathname,
-		label: "Blog",
+
+	burger: {
+		marginRight: theme.spacing.md,
+
+		[theme.fn.largerThan("md")]: {
+			display: "none",
+		},
 	},
-];
+	links: {
+		width: 260,
 
-export const Header: FC = () => {
-	const sm = useMediaQuery("sm");
-	const [opem, setOpen] = useState(false);
-	const [opened, { toggle, open }] = useDisclosure(false);
+		[theme.fn.smallerThan("md")]: {
+			display: "none",
+		},
+	},
+	link: {
+		marginLeft: theme.spacing.md,
+		fontWeight: 700,
+		padding: theme.spacing.xs,
+		"&:hover": {
+			backgroundColor:
+				theme.colorScheme === "dark"
+					? theme.colors.dark[6]
+					: theme.colors.gray[1],
+		},
+	},
+	button: {
+		[theme.fn.smallerThan("md")]: {
+			display: "none",
+		},
+	},
+	title: {
+		fontWeight: 700,
+	},
 
-	const items = Links.map((link) => (
-		<NextLink key={link.label} href={link.href}>
-			<Text
-				size="sm"
-				weight={700}
-				style={{ borderRadius: "2px", cursor: "pointer" }}
-				onClick={() => close()}
-			>
-				{link.label}
-			</Text>
-		</NextLink>
+	linkActive: {
+		"&, &:hover": {
+			backgroundColor: theme.fn.variant({
+				variant: "light",
+				color: theme.primaryColor,
+			}).background,
+			color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
+				.color,
+		},
+	},
+}));
+
+export const HeaderModule: FC = () => {
+	const [opened, { toggle }] = useDisclosure(false);
+	const { classes } = useStyles();
+
+	const LinkProps = [
+		{
+			link: pagesPath.$url().pathname,
+			label: "Home",
+		},
+		{
+			link: pagesPath.blog.$url().pathname,
+			label: "Blog",
+		},
+	];
+
+	const LinkItem = LinkProps.map((item) => (
+		<Link href={item.link} key={item.label} className={classes.link}>
+			{item.label}
+		</Link>
 	));
 
 	return (
-		<>
-			<div className="mx-auto flex justify-between">
-				<div>
-					<Drawer
-						opened={opened}
-						onClose={() => close()}
-						withCloseButton={false}
-					/>
-				</div>
-				<div>
-					<div>
-						<ul className="flex flex-row space-x-4">
-							{Links.map((item) => (
-								<li key={item.href}>
-									<Link href={item.href}>{item.label}</Link>
-								</li>
-							))}
-						</ul>
-					</div>
-				</div>
-			</div>
-		</>
+		<Header height={56} mb={120}>
+			<Container className={classes.inner}>
+				<Burger
+					aria-label="Open navigation menu"
+					onClick={toggle}
+					className={classes.burger}
+					opened={opened}
+				/>
+				<Drawer
+					opened={opened}
+					onClose={toggle}
+					size="50%"
+					className={classes.burger}
+				>
+					<Stack p={"md"} hidden={!opened}>
+						{LinkItem}
+					</Stack>
+				</Drawer>
+				<Link href="/">
+					<Text className={classes.title}>Naoki Hayashida</Text>
+				</Link>
+				<Group className={classes.links}>{LinkItem}</Group>
+				<ThemeButton />
+			</Container>
+		</Header>
 	);
 };
