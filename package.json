@@ -19,6 +19,8 @@
 		"@mantine/form": "^5.10.3",
 		"@mantine/hooks": "^5.10.3",
 		"@mantine/next": "^5.10.3",
+		"@tabler/icons": "^2.4.0",
+		"@tabler/icons-react": "^2.4.0",
 		"microcms-js-sdk": "^2.3.2",
 		"next": "13.1.4",
 		"next-seo": "^5.15.0",
