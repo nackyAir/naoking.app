@@ -1,10 +1,10 @@
 <div align="center">
 
-## [Welcome to PortPolio!!!!](https://portpolio-2.vercel.app/blog)
+# Welcome to [PortPolio](https://portpolio-2.vercel.app)!!!!
 
 </div>
 
-# Uee Lauguage
+### Using Lauguage
 
 - TypeScript
 
