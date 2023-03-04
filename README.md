@@ -1,5 +1,11 @@
 <div align="center">
 
+![logo](https://user-images.githubusercontent.com/70335387/222929675-c74baa99-ae86-4604-b48d-d22cc4331a9e.png)
+
+</div>
+
+<div align="center">
+
 # Welcome to [PortPolio](https://portpolio-2.vercel.app)!!!!
 
 </div>
