@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { FC, ReactEventHandler, ReactNode } from "react";
+=======
+import { FC, ReactNode } from "react";
+>>>>>>> main
 import { ErrorBoundary, FallbackProps } from "react-error-boundary";
 
 export const LayoutFallback = ({ error }: FallbackProps) => {
