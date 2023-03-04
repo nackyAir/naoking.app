@@ -12,6 +12,7 @@ export const FooterModule: FC = () => {
 			justifyContent: "center",
 			borderTop: "1px solid",
 			alignItems: "center",
+			height: 45,
 			borderColor:
 				theme.colorScheme === "dark"
 					? theme.colors.dark[3]
