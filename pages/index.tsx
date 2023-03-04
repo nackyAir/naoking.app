@@ -1,12 +1,9 @@
 import { Index } from "@/pages";
-import { CustomNextPage } from "next";
-import { FulledLayout } from "@/layouts/FulledLayout";
+import { NextPage } from "next";
 import "animate.css";
 
-export const IndexPage: CustomNextPage = () => {
+export const IndexPage: NextPage = () => {
 	return <Index />;
 };
-
-IndexPage.getLayout = FulledLayout;
 
 export default IndexPage;

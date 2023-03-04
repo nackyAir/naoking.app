@@ -66,11 +66,9 @@ export const Form: FC = () => {
 							emailjs.send(serviceID, templateID, form.values, userID).then(
 								function (response) {
 									toast.success("Your message has been sent!");
-									console.log("SUCCESS!", response.status, response.text);
 								},
 								function (error) {
 									toast.error("Your message has not been sent!");
-									console.log("FAILED...", error);
 								}
 							);
 						})}

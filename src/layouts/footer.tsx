@@ -1,7 +1,7 @@
 import { Container, createStyles, Text } from "@mantine/core";
 import { FC } from "react";
 
-export const Footer: FC = () => {
+export const FooterModule: FC = () => {
 	const styles = createStyles((theme) => ({
 		footer: {
 			backgroundColor:
@@ -12,6 +12,7 @@ export const Footer: FC = () => {
 			justifyContent: "center",
 			borderTop: "1px solid",
 			alignItems: "center",
+			height: 45,
 			borderColor:
 				theme.colorScheme === "dark"
 					? theme.colors.dark[3]

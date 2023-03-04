@@ -1,19 +1,16 @@
 import { client } from "@/client/client";
-import { FixedLayout } from "@/layouts/FixedLayout";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
-import { CustomNextPage, GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { BlogItemProps } from "pages/blog";
 import { BlogPageItem } from "@/pages/blog/blogpage";
 
 export type Props = BlogItemProps & MicroCMSContentId & MicroCMSDate;
 
-export const BlogPage: CustomNextPage<Props> = (props) => {
+export const BlogPage: NextPage<Props> = (props) => {
 	return <BlogPageItem {...props} />;
 };
 
 export default BlogPage;
-
-BlogPage.getLayout = FixedLayout;
 
 export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
 	const data = await client.getList({

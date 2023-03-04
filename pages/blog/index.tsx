@@ -1,9 +1,8 @@
-import { CustomNextPage, GetStaticProps } from "next";
+import { GetStaticProps, NextPage } from "next";
 import "animate.css";
 import { Blog } from "@/pages/blog";
 import { client } from "@/client/client";
 import { MicroCMSListResponse } from "microcms-js-sdk";
-import { FixedLayout } from "@/layouts/FixedLayout";
 
 export type BlogProps = MicroCMSListResponse<BlogItemProps>;
 
@@ -18,7 +17,7 @@ export type BlogItemProps = {
 	};
 };
 
-export const BlogPage: CustomNextPage<BlogProps> = (props) => {
+export const BlogPage: NextPage<BlogProps> = (props) => {
 	return <Blog {...props} />;
 };
 
@@ -31,7 +30,5 @@ export const getStaticProps: GetStaticProps<BlogProps> = async () => {
 		props: data,
 	};
 };
-
-BlogPage.getLayout = FixedLayout;
 
 export default BlogPage;

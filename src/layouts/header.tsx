@@ -45,10 +45,7 @@ const useStyles = createStyles((theme) => ({
 		fontWeight: 700,
 		padding: theme.spacing.xs,
 		"&:hover": {
-			backgroundColor:
-				theme.colorScheme === "dark"
-					? theme.colors.dark[6]
-					: theme.colors.gray[1],
+			color: theme.colors.blue[6],
 		},
 	},
 	button: {

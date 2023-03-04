@@ -1,14 +1,15 @@
 import "src/styles/globals.css";
 import "animate.css";
-import type { CustomAppPage } from "next/app";
 import {
 	ColorScheme,
 	ColorSchemeProvider,
 	MantineProvider,
 } from "@mantine/core";
 import { useHotkeys, useLocalStorage } from "@mantine/hooks";
+import { AppProps } from "next/app";
+import Layout from "@/layouts/AooShell";
 
-const App: CustomAppPage = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }: AppProps) => {
 	const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
 		key: "mantine-color-scheme",
 		defaultValue: "light",
@@ -19,12 +20,6 @@ const App: CustomAppPage = ({ Component, pageProps }) => {
 		setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 
 	useHotkeys([["mod+J", () => toggleColorScheme()]]);
-
-	const getLayout =
-		Component.getLayout ||
-		((page) => {
-			return page;
-		});
 
 	return (
 		<>
@@ -37,7 +32,9 @@ const App: CustomAppPage = ({ Component, pageProps }) => {
 					withNormalizeCSS
 					theme={{ colorScheme }}
 				>
-					{getLayout(<Component {...pageProps} />)}
+					<Layout>
+						<Component {...pageProps} />
+					</Layout>
 				</MantineProvider>
 			</ColorSchemeProvider>
 		</>
