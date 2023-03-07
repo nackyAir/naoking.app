@@ -1,5 +1,5 @@
 import { Title } from "@/components/atom/Title";
-import { Box, Card, Container, createStyles, Group, Text } from "@mantine/core";
+import { Box, Card, Container, createStyles, Text } from "@mantine/core";
 import dayjs from "dayjs";
 import Image from "next/image";
 import Link from "next/link";
