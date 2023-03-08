@@ -41,7 +41,7 @@ const useStyles = createStyles((theme) => ({
 		},
 	},
 	link: {
-		marginLeft: theme.spacing.md,
+		marginLeft: theme.spacing.sm,
 		fontWeight: 700,
 		padding: theme.spacing.xs,
 		"&:hover": {
@@ -77,6 +77,10 @@ export const HeaderModule: FC = () => {
 		{
 			link: pagesPath.$url().pathname,
 			label: "Home",
+		},
+		{
+			link: pagesPath.about.$url().pathname,
+			label: "About",
 		},
 		{
 			link: pagesPath.blog.$url().pathname,
