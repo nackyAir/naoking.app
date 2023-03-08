@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Laaguage } from "@/components/Language";
 import { Form } from "@/components/Form";
 import { ProfileCard } from "@/components/Profile";
-import { NextSeo } from "next-seo";
 
 export const Index: FC = () => {
 	return (
