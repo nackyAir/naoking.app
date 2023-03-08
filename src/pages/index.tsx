@@ -4,10 +4,11 @@ import Image from "next/image";
 import { Laaguage } from "@/components/Language";
 import { Form } from "@/components/Form";
 import { ProfileCard } from "@/components/Profile";
+import { NextSeo } from "next-seo";
 
 export const Index: FC = () => {
 	return (
-		<div className="mx-auto flex-col px-2">
+		<div className="flex-col px-2 mx-auto">
 			<div>
 				<div className="flex flex-col items-center justify-center xs:mx-4 md:flex-row ">
 					<div className="font-serif text-4xl font-bold">
