@@ -13,6 +13,11 @@ export const Laaguage: FC = () => {
 			marginLeft: "auto",
 			paddingTop: 50,
 			paddingBottom: 50,
+
+			"@media (min-width: 576px)": {
+				marginLeft: "1rem",
+				marginRight: "1rem",
+			},
 		},
 
 		link: {
