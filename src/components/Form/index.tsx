@@ -55,6 +55,23 @@ export const Form: FC = () => {
 	const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 	const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
 
+	const handleSubmit = async () => {
+		await emailjs
+			.send(serviceID, templateID, form.values, userID)
+			.then(() => {
+				toast.success("フォームが送信されました！", {
+					position: "top-center",
+				});
+				form.reset();
+			})
+			.catch(() => {
+				toast.error("送信に失敗しました。", {
+					position: "top-center",
+				});
+				form.reset();
+			});
+	};
+
 	return (
 		<div>
 			<Container className={classes.Container}>
@@ -62,16 +79,7 @@ export const Form: FC = () => {
 
 				<Box className={classes.Box}>
 					<form
-						onSubmit={form.onSubmit(() => {
-							emailjs.send(serviceID, templateID, form.values, userID).then(
-								function (response) {
-									toast.success("Your message has been sent!");
-								},
-								function (error) {
-									toast.error("Your message has not been sent!");
-								}
-							);
-						})}
+						onSubmit={form.onSubmit(handleSubmit)}
 						className="flex flex-col space-y-4"
 					>
 						<TextInput
@@ -104,7 +112,7 @@ export const Form: FC = () => {
 						/>
 
 						<Button type="submit" variant="outline">
-							Submit
+							送信
 						</Button>
 					</form>
 				</Box>
