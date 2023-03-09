@@ -104,7 +104,7 @@ export const Form: FC = () => {
 						/>
 
 						<Button type="submit" variant="outline">
-							Submit
+							送信
 						</Button>
 					</form>
 				</Box>
