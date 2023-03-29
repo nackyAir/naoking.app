@@ -117,6 +117,7 @@ export const HeaderModule: FC = () => {
 					<Text className={classes.title}>Naoki Hayashida</Text>
 				</Link>
 				<Group className={classes.links}>{LinkItem}</Group>
+				<Group></Group>
 				<ThemeButton />
 			</Container>
 		</Header>

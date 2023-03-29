@@ -15,8 +15,6 @@
 	"tailwindCSS.experimental.classRegex": [
 		["classNames\\(([^)]*)\\)", "\"([^\"]*)\""]
 	],
-	"commentTranslate.hover.enabled": false,
-	"githubPullRequests.ignoredPullRequestBranches": [
-		"main"
-	]
+	"commentTranslate.hover.enabled": true,
+	"githubPullRequests.ignoredPullRequestBranches": ["main"]
 }

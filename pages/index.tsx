@@ -10,6 +10,7 @@ export const IndexPage: NextPage = () => {
 				title="Naoki Hayashida | FrontEnd Debropper."
 				description="林田 直樹のポートフォリオページです。"
 			/>
+
 			<Index />
 		</>
 	);

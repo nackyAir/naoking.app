@@ -1,7 +1,7 @@
 import { FC } from "react";
 import "animate.css";
 import Image from "next/image";
-import { Laaguage } from "@/components/Language";
+import { Laaguage } from "@/components/DevLang";
 import { Form } from "@/components/Form";
 import { ProfileCard } from "@/components/Profile";
 import { Box, Container, createStyles } from "@mantine/core";

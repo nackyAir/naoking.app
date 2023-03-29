@@ -1,5 +1,4 @@
 import "src/styles/globals.css";
-import "animate.css";
 import {
 	ColorScheme,
 	ColorSchemeProvider,
@@ -8,6 +7,7 @@ import {
 import { useHotkeys, useLocalStorage } from "@mantine/hooks";
 import { AppProps } from "next/app";
 import Layout from "@/layouts/AooShell";
+import { Provider } from "jotai";
 
 const App = ({ Component, pageProps }: AppProps) => {
 	const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -21,22 +21,26 @@ const App = ({ Component, pageProps }: AppProps) => {
 
 	useHotkeys([["mod+J", () => toggleColorScheme()]]);
 
+	//TODO: Atomを使ったLanguage Changeの実装
+
 	return (
 		<>
-			<ColorSchemeProvider
-				colorScheme={colorScheme}
-				toggleColorScheme={toggleColorScheme}
-			>
-				<MantineProvider
-					withGlobalStyles
-					withNormalizeCSS
-					theme={{ colorScheme }}
+			<Provider>
+				<ColorSchemeProvider
+					colorScheme={colorScheme}
+					toggleColorScheme={toggleColorScheme}
 				>
-					<Layout>
-						<Component {...pageProps} />
-					</Layout>
-				</MantineProvider>
-			</ColorSchemeProvider>
+					<MantineProvider
+						withGlobalStyles
+						withNormalizeCSS
+						theme={{ colorScheme }}
+					>
+						<Layout>
+							<Component {...pageProps} />
+						</Layout>
+					</MantineProvider>
+				</ColorSchemeProvider>
+			</Provider>
 		</>
 	);
 };
