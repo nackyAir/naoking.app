@@ -1,5 +1,8 @@
-import { Avatar, Box, Card, createStyles, Text } from "@mantine/core";
+import { Avatar, Box, Card, createStyles, Group, Text } from "@mantine/core";
+import Link from "next/link";
 import { FC } from "react";
+import { DiGithub } from "react-icons/di";
+import { SiGithub, SiInstagram, SiTwitter } from "react-icons/si";
 
 export const ProfileCard: FC = () => {
 	const styles = createStyles((theme) => ({
@@ -31,6 +34,12 @@ export const ProfileCard: FC = () => {
 		Profile: {
 			paddingBottom: 20,
 		},
+		socialMedia: {
+			fontSize: 30,
+			display: "flex",
+			paddingTop: 20,
+			flexDirection: "row",
+		},
 	}));
 
 	const { classes } = styles();
@@ -48,6 +57,17 @@ export const ProfileCard: FC = () => {
 					<Text>Frontend Engineer</Text>
 					<Text>Japan,Yokohama</Text>
 				</Box>
+				<Group className={classes.socialMedia}>
+					<Link href="https://github.com/Naoki0509">
+						<SiGithub size={35} />
+					</Link>
+					<Link href="https://twitter.com/naoki__0509">
+						<SiTwitter size={35} />
+					</Link>
+					<Link href="https://www.instagram.com/naoking0509">
+						<SiInstagram size={35} />
+					</Link>
+				</Group>
 			</Card>
 		</>
 	);
