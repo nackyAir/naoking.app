@@ -1,7 +1,13 @@
 import { FC } from "react";
 import { DiReact, DiRuby } from "react-icons/di";
 import { AiFillHtml5 } from "react-icons/ai";
-import { SiJavascript, SiTypescript, SiRubyonrails } from "react-icons/si";
+import {
+	SiJavascript,
+	SiTypescript,
+	SiRubyonrails,
+	SiGraphql,
+	SiFirebase,
+} from "react-icons/si";
 import { Box, Container, createStyles, Grid, Text } from "@mantine/core";
 import { Title } from "@/components/atom/Title";
 import Link from "next/link";
@@ -75,15 +81,25 @@ export const Laaguage: FC = () => {
 			href: "https://reactnative.dev/",
 		},
 		{
-			icon: <DiRuby />,
-			label: "Ruby",
-			href: "https://www.ruby-lang.org/ja/",
+			icon: <SiGraphql />,
+			label: "GraphQL",
+			href: "https://graphql.org/",
 		},
 		{
-			icon: <SiRubyonrails />,
-			label: "Ruby on Rails",
-			href: "https://rubyonrails.org/",
+			icon: <SiFirebase />,
+			label: "Firebase",
+			href: "https://firebase.google.com/",
 		},
+		// {
+		// 	icon: <DiRuby />,
+		// 	label: "Ruby",
+		// 	href: "https://www.ruby-lang.org/ja/",
+		// },
+		// {
+		// 	icon: <SiRubyonrails />,
+		// 	label: "Ruby on Rails",
+		// 	href: "https://rubyonrails.org/",
+		// },
 	];
 
 	return (
