@@ -9,9 +9,25 @@ import {
 	Textarea,
 	TextInput,
 } from "@mantine/core";
-import { useForm } from "@mantine/form";
+import { useForm, zodResolver } from "@mantine/form";
 import { toast } from "react-hot-toast";
 import { Title } from "@/components/atom/Title";
+import { z } from "zod";
+
+const formShema = z.object({
+	name: z.string().min(1, {
+		message: "名前を入力してください。",
+	}),
+	company: z.string(),
+	email: z.string().email({
+		message: "メールアドレスが無効です。",
+	}),
+	message: z.string().min(1, {
+		message: "メッセージを入力してください。",
+	}),
+});
+
+type FormInputType = z.infer<typeof formShema>;
 
 export const Form: FC = () => {
 	const styles = createStyles({
@@ -36,19 +52,15 @@ export const Form: FC = () => {
 
 	const { classes } = styles();
 
-	const form = useForm({
+	const form = useForm<FormInputType>({
 		initialValues: {
 			name: "",
 			company: "",
 			email: "",
 			message: "",
 		},
-		validate: {
-			name: (value) =>
-				value.length < 2 ? "Name must have at least 2 letters" : null,
-			email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
-			message: (value) => (value.length > 0 ? null : "Invalid message"),
-		},
+		validateInputOnBlur: true,
+		validate: zodResolver(formShema),
 	});
 
 	const userID = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;

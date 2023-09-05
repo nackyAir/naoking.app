@@ -90,16 +90,6 @@ export const Laaguage: FC = () => {
 			label: "Firebase",
 			href: "https://firebase.google.com/",
 		},
-		// {
-		// 	icon: <DiRuby />,
-		// 	label: "Ruby",
-		// 	href: "https://www.ruby-lang.org/ja/",
-		// },
-		// {
-		// 	icon: <SiRubyonrails />,
-		// 	label: "Ruby on Rails",
-		// 	href: "https://rubyonrails.org/",
-		// },
 	];
 
 	return (
